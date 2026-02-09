@@ -290,6 +290,18 @@ public class Main {
 	
 	        return equalsons(t.getLeft()) && equalsons(t.getRight());
 	    }
+	 public static boolean simatree(BinNode<Integer>t)//ex21
+    {
+    	if(t==null) {
+    		return true;
+    	}
+    	if(Math.abs(TreeHeight(t.getLeft())-TreeHeight(t.getRight()))>1) {
+    		return false;
+    	}
+    	return simatree(t.getLeft())&&simatree(t.getRight());
+    	
+    	
+    }
 	
 		
 
