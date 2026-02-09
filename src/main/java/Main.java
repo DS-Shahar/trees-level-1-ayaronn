@@ -227,6 +227,77 @@ public static boolean ex20(BinNode<Integer> t, int n) {
 
     return ex20(t.getLeft(), n) || ex20(t.getRight(), n);
 }
+    public static int maxNode(BinNode<Integer> t, int max) //ex23a
+    {
+        if (t == null) {
+            return max;  
+        }
+
+        if (t.getValue() > max) {
+            max = t.getValue();
+        }
+
+        max = maxNode(t.getLeft(), max);
+        max = maxNode(t.getRight(), max);
+
+        return max;  
+    }
+    public static int minNode(BinNode<Integer> t, int min) //ex23b
+    {
+        if (t == null) {
+            return min;  
+        }
+
+        if (t.getValue() < min) {
+            min = t.getValue();
+        }
+
+        min = maxNode(t.getLeft(), min);
+        min = maxNode(t.getRight(), min);
+
+        return min;  
+    }
+    public static int diffNode(BinNode<Integer>t,int diff) //ex23c 
+    {
+    	return(max(t)-min(t));
+    	
+    }
+    public static int TreeHeight(BinNode<Integer> t)//ex27
+    {
+        if (t == null) {
+            return 0;  
+        }
+        int leftHeight = TreeHeight(t.getLeft());
+        int rightHeight = TreeHeight(t.getRight());
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+    public static boolean perfTree(BinNode<Integer>t) {
+    	
+    	return leaf(t)==Math.pow(2, TreeHight(t));
+    	
+    }
+    public static int leaf(BinNode<Integer> t) {
+        if (t == null)
+            return 0;
+
+        if (!t.hasLeft() && !t.hasRight())
+            return 1;
+
+        return leaf(t.getLeft()) + leaf(t.getRight());
+    }
+    public static boolean equalsons(BinNode<Integer> t)//ex22
+    {
+        if (t == null) {
+            return true;
+        }
+
+        if ((t.hasLeft() && !t.hasRight()) || (!t.hasLeft() && t.hasRight())) {
+            return false;
+        }
+
+        return equalsons(t.getLeft()) && equalsons(t.getRight());
+    }
 
 	
 
