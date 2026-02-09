@@ -278,15 +278,6 @@ public class Main {
 	    	return leaf(t)==Math.pow(2, TreeHight(t));
 	    	
 	    }
-	    public static int leaf(BinNode<Integer> t) {
-	        if (t == null)
-	            return 0;
-	
-	        if (!t.hasLeft() && !t.hasRight())
-	            return 1;
-	
-	        return leaf(t.getLeft()) + leaf(t.getRight());
-	    }
 	    public static boolean equalsons(BinNode<Integer> t)//ex22
 	    {
 	        if (t == null) {
