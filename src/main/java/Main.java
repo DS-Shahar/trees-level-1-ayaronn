@@ -302,6 +302,27 @@ public class Main {
     	
     	
     }
+	    public static int count(BinNode<Integer>t) {
+    	if(t==null) {
+    		return 0;
+    	}
+    	if(!t.hasRight()) {
+    		if(ifPrime(t.getLeft().getValue()+0)) {
+    			return 1+count(t.getLeft());
+    		}
+    	}
+    	else if(!t.hasLeft()) {
+    		if(ifPrime(t.getRight().getValue()+0)) {
+    			return 1+count(t.getRight());
+    		}
+    	}
+    	else if(isPrime(t.getLeft().getValue()+t.getRight().getValue())) {
+    		return 1+count(t.getLeft())+count(t.getRight());
+    	}
+    	else return count(t.getLeft())+count(t.getRight());
+    	
+    }
+
 	
 		
 
